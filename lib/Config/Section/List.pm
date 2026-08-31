@@ -13,6 +13,9 @@
 # Features:
 #
 
+use Config::Section;
+
+
 #==============================================================================
 # The Config::Section::List Package
 
@@ -70,13 +73,14 @@ sub Add {
     }    #if(scalar(@_) > 1)
 
     if ( defined $cfgsec ) {
-        unless ( $cfgsec->isa('ConfigSection') ) {
+        unless ( $cfgsec->isa('Config::Section') ) {
             $cfgsec = undef;
         }
     }
 
     #Create an empty ConfigSection Object
-    $cfgsec = Config::Section::->new unless ( defined $cfgsec );
+    $cfgsec = Config::Section::->new
+      unless ( defined $cfgsec );
 
     #Execute the Base Logic
     Object::Meta::List::Add( $self, $cfgsec );
