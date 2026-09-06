@@ -21,6 +21,34 @@ use Config::Section;
 
 package Config::Section::List;
 
+=head1 NAME
+
+Config::Section::List - Indexed collection of Config::Section objects
+
+=head1 DESCRIPTION
+
+Maintains ordered configuration sections and indexes them by section name.
+
+=head1 METHODS
+
+=over 4
+
+=item new
+
+Create a section list with a name index.
+
+=item Add
+
+Add an existing section or create one from a name and key/value pairs.
+
+=item getConfigSectionbyName
+
+Return a section by its name, or undef when it is absent.
+
+=back
+
+=cut
+
 #----------------------------------------------------------------------------
 #Dependencies
 

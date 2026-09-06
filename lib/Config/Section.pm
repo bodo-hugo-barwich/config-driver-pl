@@ -18,6 +18,34 @@
 
 package Config::Section;
 
+=head1 NAME
+
+Config::Section - Object representation of one INI section
+
+=head1 DESCRIPTION
+
+Stores named options and positional list values while preserving insertion order.
+
+=head1 METHODS
+
+=over 4
+
+=item new, setName, getName
+
+Create and manage the section name.
+
+=item set, add, get, hasKey
+
+Write and read keyed or positional values.
+
+=item getKey, getKeyValue, getKeyCount
+
+Inspect values in insertion order.
+
+=back
+
+=cut
+
 #----------------------------------------------------------------------------
 #Dependencies
 
