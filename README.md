@@ -1,3 +1,6 @@
+[![Automated Tests](https://github.com/bodo-hugo-barwich/config-driver-pl/actions/workflows/automated_testing.yml/badge.svg)](https://github.com/bodo-hugo-barwich/config-driver-pl/actions/workflows/automated_testing.yml)
+[![Publish new Release](https://github.com/bodo-hugo-barwich/config-driver-pl/actions/workflows/publish_release.yml/badge.svg)](https://github.com/bodo-hugo-barwich/config-driver-pl/actions/workflows/publish_release.yml)
+
 # Config::Access::Driver
 
 De-/Serialising INI files into ready-to-use object structures
