@@ -21,6 +21,8 @@ use Config::Section::Parser;
 
 package Config::Access::Driver;
 
+our $VERSION = '1.0.0';
+
 #----------------------------------------------------------------------------
 #Dependencies
 
@@ -51,14 +53,14 @@ sub readConfigSectionList {
         %hshprms = ( 'filepath' => $_[0] );
     }
 
-    $cfgfl = Config::Access::Driver::new( 'ConfigAccessDriver', %hshprms );
+    $cfgfl = Config::Access::Driver::new( 'Config::Access::Driver', %hshprms );
 
     $cfgfl->setFilePath( $hshprms{'filepath'} );
 
-    $lstsecs = $cfgfl->readList;
+    $lstsecs = $cfgfl->readList();
 
     #Free the System Resources
-    $cfgfl->freeResources;
+    $cfgfl->freeResources();
 
     return $lstsecs;
 }
@@ -92,7 +94,7 @@ sub setList {
 
     if ( defined $self->{'_list_sections'} ) {
         $self->{'_list_sections'} = undef
-          unless ( $self->{'_list_sections'}->isa('ConfigSectionList') );
+          unless ( $self->{'_list_sections'}->isa('Config::Section::List') );
 
     }
 }
@@ -100,7 +102,6 @@ sub setList {
 sub Read {
     my $self      = $_[0];
     my $rarrcntnt = undef;
-    my $irs       = 0;
 
     if ( defined $self->{'_list_sections'} ) {
 
@@ -115,7 +116,7 @@ sub Read {
     #Read the File Content into an Array
     $rarrcntnt = File::Access::Driver::readContentArray $self ;
 
-    return if ( !defined $rarrcntnt
+    return 0 if ( !defined $rarrcntnt
         || ref($rarrcntnt) ne 'ARRAY' );
 
     return Config::Section::Parser::fillListFromArray(

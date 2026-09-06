@@ -152,6 +152,8 @@ sub buildStringFromList {
     my $icfgsecnt = $seclist->getMetaObjectCount();
     my $icfgkycnt = -1;
 
+    print "sec cnt: '$icfgsecnt'\n";
+
   CONFIGSECTION:
     for ( $icfgsec = 0 ; $icfgsec < $icfgsecnt ; $icfgsec++ ) {
         $cfgsec = $seclist->getMetaObject($icfgsec);
@@ -159,6 +161,8 @@ sub buildStringFromList {
         next CONFIGSECTION if ( !defined $cfgsec );
 
         $scfgsecnm = $cfgsec->getName();
+
+        print "sec nm: '$scfgsecnm'\n";
 
         if ( $scfgsecnm ne '' ) {
             $scntnt .= "[" . $scfgsecnm . "]\n";

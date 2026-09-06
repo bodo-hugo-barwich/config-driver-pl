@@ -273,7 +273,7 @@ sub hasKey {
 }
 
 sub getKeyCount {
-    my $irs = MetaEntry::getMeta( $_[0], 'keycount', -1 );
+    my $irs = Object::Meta::getMeta( $_[0], 'keycount', -1 );
 
     if ( $irs == -1 ) {
         $irs = scalar( @{ $_[0]->[LIST_DATA_KEYS] } );
