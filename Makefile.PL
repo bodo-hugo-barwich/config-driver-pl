@@ -9,8 +9,10 @@ WriteMakefile(
     test             => { TESTS => 't/*.t' },
     BUILD_REQUIRES   => {
         'ExtUtils::MakeMaker' => '6.55',
-        'Test::More'          => '0',
-        'Test::Exception'     => '0',
+    },
+    TEST_REQUIRES => {
+        'Test::More'    => '0',
+        'Test::Exception' => '0'
     },
     PREREQ_PM => {
         'File::Access::Driver'  => '0',
