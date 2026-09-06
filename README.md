@@ -21,8 +21,8 @@ adding an INI parser and ready-made section structures on top.
 
 This library was conceived as result of the experience using `Config::IniHash`
 extensively and the clumsy code it produces.\
-So, it aims to make the work de-/serialising INI files easier and more streamlined.\
-Especially data manipulation is more simplified with the use of the convenient
+So, it aims to make the work **de-/serialising INI files** **easier** and more **streamlined**.\
+Especially data manipulation is simplified with the use of the convenient
 `Object::Meta` library.\
 But also file manipulation becomes more easier thanks to the use of the
 convenient `File::Access::Driver` library.
