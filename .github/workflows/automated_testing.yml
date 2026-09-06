@@ -46,7 +46,9 @@ jobs:
 
       - name: Test Sequences
         run: |
-          
+          eval $(perl -Mlocal::lib -I ~/perl5/lib/perl5/)
+          echo "File::Access::Driver Version:"
+          perl -MFile::Access::Driver -e 'print $File::Access::Driver::VERSION, "\n";'
           echo "Listing Directory Contents"
           pwd && ls -lah
           perl Makefile.PL
