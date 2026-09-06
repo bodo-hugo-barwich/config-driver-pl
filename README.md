@@ -20,10 +20,10 @@ adding an INI parser and ready-made section structures on top.
 ## Motivation
 
 This library was conceived as result of the experience using `Config::IniHash`
-extensively and the clumsy code it produces.
-So, it aims to make the work de-/serialising INI files easier and more streamlined.
+extensively and the clumsy code it produces.\
+So, it aims to make the work de-/serialising INI files easier and more streamlined.\
 Especially data manipulation is more simplified with the use of the convenient
-`Object::Meta` library.
+`Object::Meta` library.\
 But also file manipulation becomes more easier thanks to the use of the
 convenient `File::Access::Driver` library.
 
@@ -144,6 +144,7 @@ if ( defined $config ) {
         }
     }
 }
+```
 
 Every access **repeats the full hash-of-hashes path** — `$config->{$server_prefix}->{'KEY'}` —
 wrapped in exists guards.
@@ -172,7 +173,7 @@ those checks into **get defaults**, `hasKey()`, and the **driver's Error Code**.
 
 Other INI readers are typically faster on raw parsing, and hash-of-hashes returns plain data with no dependencies.
 But their speed is paid for in application code: hash chains to repeat, existence checks to hand-roll,
-and no object behaviour whatsoever. Config::Access::Driver is optimised for developer productivity
+and no object behaviour whatsoever. `Config::Access::Driver` is optimised for **developer productivity**
 and safe access patterns rather than absolute parse speed — lookups are still served through a name index
 rather than linear scans, and parsing itself is a single pass over the file lines.
 
@@ -187,9 +188,10 @@ Object::Meta / Object::Meta::List – Lightweight meta-object indexing layer
 ```
 
 Each layer is proven, published software in its own right — `File::Access::Driver` handles
-any file I/O task and Object::Meta provides indexed collections for arbitrary objects —
+any file I/O task and `Object::Meta` provides indexed collections for arbitrary objects —
 with the `Config::*` layers adding only the INI-specific logic on top.
-Dependencies
+
+## Dependencies
 
 Runtime dependencies are intentionally minimal:
 | Module |  Purpose |
