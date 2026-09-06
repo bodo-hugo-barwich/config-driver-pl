@@ -38,7 +38,7 @@ jobs:
           cpanm --local-lib=~/perl5 local::lib
           eval $(perl -Mlocal::lib -I ~/perl5/lib/perl5/)
           cpanm -n Process::SubProcess File::Access::Driver Object::Meta        
-          echo "Process::SubProcess Command:"
+          echo "* Process::SubProcess Command:"
           which run_subprocess.pl || true
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -47,15 +47,13 @@ jobs:
       - name: Test Sequences
         run: |
           eval $(perl -Mlocal::lib -I ~/perl5/lib/perl5/)
-          echo "File::Access::Driver Version:"
-          perl -MFile::Access::Driver -e 'print $File::Access::Driver::VERSION, "\n";'
-          echo "Listing Directory Contents"
+          echo "* Listing Directory Contents"
           pwd && ls -lah
           perl Makefile.PL
           make manifest
-          echo "'MANIFEST' content:"
+          echo "* 'MANIFEST' content:"
           cat MANIFEST
-          echo "Starting Test Sequences"
+          echo "* Starting Test Sequences"
           make test
 
       # Runs a set of commands using the runners shell
