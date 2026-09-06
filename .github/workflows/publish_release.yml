@@ -138,8 +138,8 @@ jobs:
           publish_res=`cat cpan-upload.log | grep -i "exit code:" | cut -d"'" -f2` 
           if [ -z "$publish_res" ]; then publish_res=0; echo "Exit Code: '0'" >> cpan-upload.log; fi;
           duplicated=`cat cpan-upload_error.log | grep -i "Conflict" | wc -l`
-          echo "CPAN Upload Report:"
+          echo "* CPAN Upload Report:"
           cat cpan-upload.log
-          echo "CPAN Upload Error:"
+          echo "* CPAN Upload Error:"
           cat cpan-upload_error.log
         
