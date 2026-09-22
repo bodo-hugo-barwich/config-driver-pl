@@ -20,6 +20,32 @@ use Config::Section::List;
 
 package Config::Section::Parser;
 
+=head1 NAME
+
+Config::Section::Parser - Parse and serialize INI section lists
+
+=head1 DESCRIPTION
+
+Converts arrays of INI lines into Config::Section::List objects and serializes
+those objects back to INI text. Comments, keyed options, repeated sections, and
+positional list values are supported.
+
+=head1 FUNCTIONS
+
+=over 4
+
+=item fillListFromArray($section_list, \@lines)
+
+Populate a section list from INI lines. Returns true on success.
+
+=item buildStringFromList($section_list)
+
+Return the section list as INI text, or zero for an invalid list.
+
+=back
+
+=cut
+
 sub fillListFromArray {
     my $seclist   = $_[0];
     my $rarrcntnt = $_[1];
